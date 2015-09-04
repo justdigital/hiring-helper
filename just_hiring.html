@@ -13,8 +13,9 @@
 				</div>
 				<div class="form-group">
        		<select name="role" id="role" class="form-control">
-       			{{#each roles}}
-			  			{{> role}}
+       			<option value="">--Selecione--</option>
+       			{{#each userRoles}}
+			  			{{> option}}
 						{{/each}}
        		</select>
 				</div>
@@ -36,16 +37,17 @@
 		<button class="edit btn pull-right"> <i class="glyphicon glyphicon-pencil"></i> </button>
 		<ul class="list-unstyled">
 			<li>Nome: {{name}}</li>
-	  	<li>Papel: {{role}}</li>
+	  	<li>Papel: {{userRole}}</li>
 		</ul>
 		<form class="update-candidate form-inline">
 				<div class="form-group">
-        	<input type="text" class="form-control" name="update-name" value="{{name}}" />
+        	<input type="text" class="form-control" name="uName" value="{{name}}" />
 				</div>
 				<div class="form-group">
-       		<select name="update-role" class="form-control">
-       			{{#each roles}}
-			  			{{> role}}
+       		<select name="uRole" class="form-control">
+       			<option value="">--Selecione--</option>
+       			{{#each userRoles}}
+			  			{{> option}}	
 						{{/each}}
        		</select>
 				</div>
@@ -54,6 +56,6 @@
 	</li>
 </template>
 
-<template name="role">
-	<option {{selected role}} value="{{role}}">{{role}}</option>	
+<template name="option">
+	<option value="{{role}}">{{role}}</option>	
 </template>

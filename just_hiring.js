@@ -1,4 +1,5 @@
 Candidates = new Mongo.Collection("Candidate");
+Roles = new Mongo.Collection("Roles");
 
 if (Meteor.isClient) {
 	// 	 code only runs on the client
@@ -6,29 +7,19 @@ if (Meteor.isClient) {
 		candidates: function () {
 			return Candidates.find({}, {sort: {createdAt: -1}});
 		},
-		roles: [
-			{ role: "Product Owner" },
-			{ role: "Scrum Master" },
-			{ role: "Desenvolvedor" },
-		]
+		userRoles: function() {
+			return Roles.find({});
+		}
 	});
 
 	Template.candidate.helpers({
-		roles: function(){
-			Session.set('role', this.role);
-			return [
-				{ role: "Product Owner" },
-				{ role: "Scrum Master" },
-				{ role: "Desenvolvedor" },
-			];
-		}
-	})
-
-	Template.role.helpers({
-		selected: function(role) {
-			var r = Session.get('role');
-			var selected = (r == role) ? 'selected' : '';
-			return selected;
+		userRoles: function(){
+			return Roles.find({});
+		},
+		selected: function() {
+			console.log(this);
+			console.log(role);
+			return (this.role == role) ? true : false;
 		}
 	})
 
@@ -44,12 +35,32 @@ if (Meteor.isClient) {
 			// Insert a task into the collection
 			Candidates.insert({
 				name: name,
-				role: role,
+				userRole: role,
 				createdAt: new Date() // current time
 			});
  
 			// Clear form
 			event.target.name.value = "";
+		},
+
+		"submit .update-candidate": function (event) {
+			// Prevent default browser form submit
+			event.preventDefault();
+
+			// Get value from form element
+			var name = event.target.uName.value;
+			var role = event.target.uRole.selectedOptions[0].value;
+ 
+			// Insert a task into the collection
+			Candidates.update(this._id, {
+				name: name,
+				userRole: role,
+				updatedAt: new Date() // current time
+			});
+ 
+			// Clear form
+			event.target.name.value = "";
+			$(event.target).toggle('fast');
 		},
 
 		"click .edit": function (e) {

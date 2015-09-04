@@ -10,6 +10,17 @@ header{
 
 .card{
 	border-radius: 4px;
+	background-color: #f0f0f0;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card .main,
+.card .footer {
+	padding: 10px 20px;
+}
+
+.main h2 {
+	margin: 0; 
 }
 
 .candidate{

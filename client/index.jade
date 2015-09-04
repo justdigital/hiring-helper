@@ -1,23 +1,35 @@
 body
 	.container
 		header
-			h1.pull-left Just Hiring
-			.new.pull-right
+			h1 Just Hiring
+			.new
 				form.new-vacancy.form-inline
 					.form-group
 						input.form-control(name="vRole", placeholder="Papel", type="text")
 					.form-group
-						input.form-control(name="vCost", placeholder="Faixa Salarial", type='number' )
 						select.form-control(name="nivel")
 							each niveis
 								+nivelOpt
-						input(type="submit", name="submit", value="Nova vaga").btn.btn-default
+						input.form-control(name="vCost", placeholder="Faixa Salarial", type='number' )
+					.form-group
+						label(for="init") Inicio
+						input(id="init", name="init", type="date")
+					.form-group
+						label(for="end") Até
+						input(id="end", name="end", type="date")
+					input(type="submit", name="submit", value="Nova vaga").btn.btn-default
 		ul.list-unstyled
 			li.col-md-4
-				.card.bg-success
+				.card
 					.thumb
 						img(src="http://placehold.it/350x150")
 					.main
+						h3.pull-right Aberta
 						h2 Titulo
 						h3.cargo Cargo
-						p R$1000
+						p Faixa Salarial: R$1000
+					.footer
+						h4 De
+						p 10/02/2016
+						h4 Até
+						p 10/03/2016

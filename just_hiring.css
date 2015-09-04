@@ -1,4 +1,17 @@
 /* CSS declarations go here */
+header{
+	overflow: hidden;
+}
+
+.new{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.card{
+	border-radius: 4px;
+}
+
 .candidate{
 	padding: 10px;
 	margin-bottom: 10px;

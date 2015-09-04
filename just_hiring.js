@@ -4,6 +4,14 @@ Roles = new Mongo.Collection("Roles");
 if (Meteor.isClient) {
 	// 	 code only runs on the client
 	Template.body.helpers({
+		// Niveis da vaga
+		niveis: [
+			{nivel:"Junior"},
+			{nivel:"Pleno"},
+			{nivel:"Senior"},
+		],
+
+		
 		candidates: function () {
 			return Candidates.find({}, {sort: {createdAt: -1}});
 		},

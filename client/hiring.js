@@ -1,83 +1,64 @@
-Candidates = new Mongo.Collection("Candidate");
-Roles = new Mongo.Collection("Roles");
+Meteor.subscribe('vagas');
+Meteor.subscribe('candidatos');
 
-if (Meteor.isClient) {
-	// 	 code only runs on the client
-	Template.body.helpers({
-		// Niveis da vaga
-		niveis: [
-			{nivel:"Junior"},
-			{nivel:"Pleno"},
-			{nivel:"Senior"},
-		],
+// 	 code only runs on the client
+Template.app.helpers({
+	// Niveis da vaga
+	niveis:[
+		{nivel:{name:"Junior", status: false}},
+		{nivel:{name:"Pleno", status: false}},
+		{nivel:{name:"Senior", status: false}},
+	],
 
-		
-		candidates: function () {
-			return Candidates.find({}, {sort: {createdAt: -1}});
-		},
-		userRoles: function() {
-			return Roles.find({});
-		}
-	});
+	//retornar as vagas salvas no banco
+	oport: function() {
+		return Vagas.find({}, {sort: {createdAt: -1}});
+	},
+	
+	//retornar os candidatos
+	candidates: function () {
+		return Candidatos.find({}, {sort: {createdAt: -1}});
+	},
 
-	Template.candidate.helpers({
-		userRoles: function(){
-			return Roles.find({});
-		},
-		selected: function() {
-			console.log(this);
-			console.log(role);
-			return (this.role == role) ? true : false;
-		}
-	})
+	//retorna os papeis
+	userRoles: function() {
+		return Roles.find({});
+	}
+});
 
-	Template.body.events({
-		"submit .new-candidate": function (event) {
-			// Prevent default browser form submit
-			event.preventDefault();
+Template.app.events({
+	// Submit de nova vaga
+	"submit .new-vacancy": function (event) {
+		// Prevent default browser form submit
+		event.preventDefault();
 
-			// Get value from form element
-			var name = event.target.name.value;
-			var role = event.target.role.selectedOptions[0].value;
- 
-			// Insert a task into the collection
-			Candidates.insert({
-				name: name,
-				userRole: role,
-				createdAt: new Date() // current time
-			});
- 
-			// Clear form
-			event.target.name.value = "";
-		},
+		// Get value from form element
+		var papel = event.target.vRole.value;
+		var nivel = event.target.nivel.selectedOptions[0].value;
+		var salario = event.target.vCost.value;
+		//TODO fazer as datas funcionar
+		var dtIni = new Date();
+		var dtEnd = new Date();
+		//TODO converter para booleano
+		var status = "Aberta";
 
-		"submit .update-candidate": function (event) {
-			// Prevent default browser form submit
-			event.preventDefault();
+		// Insert a task into the collection
+		Vagas.insert({
+			papel: papel,
+			nivel: {name:nivel, status: true},
+			salario: salario,
+			dtIni: dtIni,
+			dtEnd: dtEnd,
+			status: status,
+			createdAt: new Date()
+		});
 
-			// Get value from form element
-			var name = event.target.uName.value;
-			var role = event.target.uRole.selectedOptions[0].value;
- 
-			// Insert a task into the collection
-			Candidates.update(this._id, {
-				name: name,
-				userRole: role,
-				updatedAt: new Date() // current time
-			});
- 
-			// Clear form
-			event.target.name.value = "";
-			$(event.target).toggle('fast');
-		},
+		event.target.vRole.value = "";
+		event.target.nivel.selectedOptions[0].value = "";
+		event.target.vCost.value = "";
+	},
 
-		"click .edit": function (e) {
-			var form = $(e.target).parents("li").find("form");
-			form.toggle('fast');
-		},
-
-		"click .delete": function () {
-			Candidates.remove(this._id);
-		}
-	});
-}
+	"click .modal": function (event) {
+		closeModal();
+	},
+});

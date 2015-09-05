@@ -3,15 +3,47 @@ header{
 	overflow: hidden;
 }
 
+.modal {
+	background: rgba(0,0,0,0.7);
+	z-index: 1;
+}
+
 .new{
 	margin-top: 20px;
 	margin-bottom: 10px;
+}
+
+.info-edit{
+	display: none;
 }
 
 .card{
 	border-radius: 4px;
 	background-color: #f0f0f0;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+	margin-bottom: 20px;
+}
+
+.abs {
+	position: relative;
+	z-index: 2;
+}
+
+.abs .card {
+	background-color: #9AC7DA;
+}
+
+.abs hr {
+	visibility: hidden;
+}
+
+.candidato {
+	display: none;
+	padding: 0px 20px 20px;
+}
+
+.candList ul > li {
+	margin: 0 5px;
 }
 
 .card .main,
@@ -19,7 +51,8 @@ header{
 	padding: 10px 20px;
 }
 
-.main h2 {
+.main h2,
+.candidato h2 {
 	margin: 0; 
 }
 
@@ -28,10 +61,6 @@ header{
 	margin-bottom: 10px;
 	background-color: lightsteelblue;
 	border-radius: 4px;
-}
-
-.edit{
-	margin-right: 10px;
 }
 
 .new-candidate{

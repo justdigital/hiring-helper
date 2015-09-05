@@ -1,0 +1,17 @@
+//- formatacao do card da vaga
+template(name="contentVaga")
+	li.col-md-4
+		.card
+			.main
+				header.pull-right
+					span.delete.btn.btn-sm
+						i.glyphicon.glyphicon-remove
+					span.edit.btn.btn-sm
+						i.glyphicon.glyphicon-pencil
+					span.addCand.btn.btn-sm
+						i.glyphicon.glyphicon-user
+				hr
+				+infoVaga
+				+editVaga
+			.candidato
+				+candForm

@@ -1,0 +1,17 @@
+//-informacoes salvas no banco a respeito da vaga
+template(name="infoVaga")
+	.info
+		h3.pull-right #{status}
+		h2 #{papel}
+		h3.cargo #{nivel.name}
+		p Faixa Salarial: R$ #{salario}
+		.footer
+			h4 De
+			p #{dtIni}
+			h4 Até
+			p #{dtEnd}
+		.candList
+			h4 Candidatos:
+			ul.list-unstyled
+				each candidatos
+					li.btn.btn-primary.cand-btn #{name}

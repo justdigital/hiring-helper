@@ -1,0 +1,22 @@
+//- formulario de edicao da vaga
+template(name="editVaga")
+	.info-edit
+		form.edit-vacancy.form-inline
+			h3.pull-right #{status}
+			input.form-control.editVrole(name="vRoleEdit" type="text", value="#{papel}")
+			select.form-control(name="nivelEdit")
+				each niveis
+					if nivel.status
+						option(value="#{nivel.name}", selected='selected') #{nivel.name}
+					else
+						option(value="#{nivel.name}") #{nivel.name}
+			p Faixa Salarial: R$ 
+				input.form-control.editVrole(name="vCostEdit", type="number", value="#{salario}")
+			.footer
+				h4 De
+				p 
+					input.form-control(name="initEdit", type='date', value="#{dtIni}" )
+				h4 Até
+				p 
+					input.form-control(name="endEdit", type='date', value="#{dtEnd}" )
+				input.btn(name="editar", type="submit", value="editar")

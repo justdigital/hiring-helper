@@ -11,3 +11,4 @@ twbs:bootstrap
 mquandalle:jade
 iron:router
 momentjs:moment
+rzymek:moment-locale-pt-br

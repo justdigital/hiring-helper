@@ -7,9 +7,9 @@ template(name="infoVaga")
 		p Faixa Salarial: R$ #{salario}
 		.footer
 			h4 De
-			p #{dtIni}
+			p {{prettifyDate dtIni}}
 			h4 Até
-			p #{dtEnd}
+			p {{prettifyDate dtEnd}}
 		.candList
 			h4 Candidatos:
 			ul.list-unstyled

@@ -1,6 +1,10 @@
 Template.infoVaga.helpers({
 	candidatos: function(){
 		return Candidatos.find({"vaga": this._id});
+	},
+	prettifyDate: function(date) {
+    return moment(new Date(date)).format('DD/MM/YYYY');
+    //return new Date(date).toString('dd-MM-yyyy');
 	}
 });
 
@@ -65,6 +69,8 @@ Template.contentVaga.events({
 		var self = $(event.target);
 		self.parents("li").find(".info").toggle('slow');
 		self.parents("li").find(".info-edit").toggle('slow');
+		self.parents("li").toggleClass('absEdit');
+		$(".modal").toggle('fast');
 	},
 
 	"click .addCand": function (event) {

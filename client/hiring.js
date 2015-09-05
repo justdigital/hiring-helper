@@ -1,6 +1,5 @@
 Meteor.subscribe('vagas');
 Meteor.subscribe('candidatos');
-
 // 	 code only runs on the client
 Template.app.helpers({
 	// Niveis da vaga
@@ -37,8 +36,8 @@ Template.app.events({
 		var nivel = event.target.nivel.selectedOptions[0].value;
 		var salario = event.target.vCost.value;
 		//TODO fazer as datas funcionar
-		var dtIni = new Date();
-		var dtEnd = new Date();
+		var dtIni = $(event.target).find("input[name='init']").val();
+		var dtEnd = $(event.target).find("input[name='end']").val();
 		//TODO converter para booleano
 		var status = "Aberta";
 

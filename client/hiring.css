@@ -24,7 +24,8 @@ header{
 	margin-bottom: 20px;
 }
 
-.abs {
+.abs,
+.absEdit {
 	position: relative;
 	z-index: 2;
 }

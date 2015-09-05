@@ -1,14 +1,10 @@
 clearCandForm = function($el){
 	var form = $el.parents("li").find(".candidato").find("form");
-	var name = form.find("input[name='cName']");
-	var social = form.find("input[name='cSocial']");
-	var cv = form.find("input[name='cCurriculo']");
 	var submit = form.find("input[name='submit']");
 
-	$(form).removeClass('edit-candidate');
-	$(name).val("");
-	$(social).val("");
-	$(cv).val("");
+	$(form).removeClass('edit-candidate').find("input, textarea, select").each(function(){
+		$(this).val("");
+	});
 	$(submit).val("Adicionar Candidato");
 }
 
@@ -23,8 +19,16 @@ Template.candForm.events({
 		var name = event.target.cName.value;
 		var social = event.target.cSocial.value;
 		var cv = event.target.cCurriculo.value;
-		var interview = new Date();
-		var result = "";
+		var interview = $(event.target).find("input[name='cInit']").val();
+		var result = event.target.cResult.selectedOptions[0].value;
+		
+		// Campos para a Entrevista 
+		if (Session.get('entrevista')) {
+			var nivel = event.target.cNivel.value;
+			var salario = event.target.cSalario.value;
+			var avaliacao = event.target.cValid.selectedOptions[0].value;
+			var obs = event.target.cObs.value;
+		}
 
 		// Insert a task into the collection
 		var objCand = {
@@ -32,6 +36,10 @@ Template.candForm.events({
 			social: social,
 			cv: cv,
 			interview: interview,
+			nivel: nivel,
+			salario: salario,
+			avaliacao: avaliacao,
+			obs: obs,
 			result: result,
 			vaga: self._id
 		};
@@ -44,20 +52,17 @@ Template.candForm.events({
 		}
 
 		// Clear form
-		event.target.cName.value = "";
-		event.target.cSocial.value = "";
-		event.target.cCurriculo.value = "";
-
 		clearCandForm($(event.target));
 		closeModal();
 	},
-	'change .date': function(e) {
-		if (e.target.value != '') {
-			Session.set('entrevista', true);
-		} else {
-			Session.set('entrevista', false);			
-		}
-	}
+
+	// 'change .date': function(e) {
+	// 	if (e.target.value != '') {
+	// 		Session.set('entrevista', true);
+	// 	} else {
+	// 		Session.set('entrevista', false);			
+	// 	}
+	// }
 });
 
 Template.candForm.helpers({

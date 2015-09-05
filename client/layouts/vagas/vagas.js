@@ -75,36 +75,63 @@ Template.contentVaga.events({
 		}else{
 			self.parents("li").addClass("abs");
 		}
+		Session.set('entrevista', false);
 		self.parents("li").find('.edit').toggle('fast');
 		self.parents("li").find(".info").toggle('fast');
 		self.parents("li").find(".candidato").toggle('fast');
 		Session.set('form', 'add');
 		$(".modal").toggle('fast');
+		$('.delete-candidate').addClass('sr-only');
 	},
 
 	"click .cand-btn": function (event) {
 		var self = $(event.target);
+		var that = this;
+		var form = self.parents("li").find(".candidato").find("form");
 
 		if(self.parents("li").hasClass("abs")){
 			self.parents("li").removeClass("abs");
 		}else{
 			self.parents("li").addClass("abs");
 		}
+
+		if(that.interview != ""){
+			Session.set('entrevista', true);
+		} else {
+			Session.set('entrevista', false);			
+		}
+
+
 		self.parents("li").find('.edit').toggle('fast');
 		self.parents("li").find(".info").toggle('fast');
-		self.parents("li").find(".candidato").toggle('fast');
+		self.parents("li").find(".candidato").toggle('fast', function(){
 
-		var form = self.parents("li").find(".candidato").find("form");
-		var name = form.find("input[name='cName']");
-		var social = form.find("input[name='cSocial']");
-		var cv = form.find("input[name='cCurriculo']");
-		var submit = form.find("input[name='submit']");
+			var name = form.find("input[name='cName']");
+			var social = form.find("input[name='cSocial']");
+			var cv = form.find("input[name='cCurriculo']");
+			var init = form.find("input[name='cInit']");
+			var nivel = form.find("input[name='cNivel']");
+			var salario = form.find("input[name='cSalario']");
+			var avaliacao = form.find("select[name='cValid']");
+			var obs = form.find("textarea[name='cObs']");
+			var result = form.find("select[name='cResult']");
+			var submit = form.find("input[name='submit']");	
 
-		$(form).addClass('edit-candidate');
-		$(name).val(this.name);
-		$(social).val(this.social);
-		$(cv).val(this.cv);
-		$(submit).val("Editar Candidato");
+			$(form).addClass('edit-candidate');
+			$(name).val(that.name);
+			$(social).val(that.social);
+			$(cv).val(that.cv);
+			$(init).val(that.interview);
+			$(nivel).val(that.nivel);
+			$(salario).val(that.salario);
+			$(avaliacao).val(that.avaliacao);
+			$(obs).val(that.obs);
+			$(result).val(that.result);
+			$(submit).val("Editar Candidato");
+			// $('.delete-candidate').removeClass('sr-only');
+
+		});
+
 
 		Session.set('form', 'edit');
 		Session.set('candId', this._id);
@@ -117,5 +144,5 @@ Template.contentVaga.events({
 		}else{
 			Vagas.remove(this._id);
 		}
-	}
+	},
 });

@@ -10,7 +10,7 @@ template(name="candForm")
 			input.form-control(name="cCurriculo", placeholder="Curriculo", type="text")
 		.form-group
 			label(for="init") Data da Entrevista
-			input.form-control.date(id="init", name="init", type='date')
+			input.form-control.date(name="cInit", type="date")
 		if entrevista
 			.form-group
 				input.form-control(name="cNivel", placeholder="Nivel", type="text")
@@ -19,9 +19,9 @@ template(name="candForm")
 			.form-group
 				select.form-control(name="cValid")
 					option(value="") -- Avaliação --
-					option(value="hire") Bom
-					option(value="reproved") Regular
-					option(value="fault") Ruim
+					option(value="bom") Bom
+					option(value="regular") Regular
+					option(value="ruim") Ruim
 			.form-group
 				textarea.form-control(name="cObs", placeholder="Observações")
 		.form-group
@@ -31,3 +31,4 @@ template(name="candForm")
 				option(value="reproved") Reprovado
 				option(value="fault") Não Compareceu
 		input(type="submit", name="submit", value="Adicionar Candidato").btn.btn-sm
+		button.delete.delete-candidate.btn.btn-danger Deletar

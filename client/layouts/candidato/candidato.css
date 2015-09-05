@@ -1,0 +1,23 @@
+.btn-normal{
+	color: #fff;
+    background-color: #387CD2;
+    border-color: #3564B3;
+}
+
+.hire{
+	color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.reproved{
+	color: #424242;
+    background-color: #C7C7C7;
+    border-color: #ABABAB;
+}
+
+.fault{
+	color: #FFFFFF;
+    background-color: #D23131;
+    border-color: #9C1818;
+}

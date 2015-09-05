@@ -1,0 +1,33 @@
+//- form para adicionar um novo canditato a uma vaga
+template(name="candForm")
+	h2 #{papel}
+	form.new-candidate
+		.form-group
+			input.form-control(name="cName", placeholder="Nome", type="text")
+		.form-group
+			input.form-control(name="cSocial", placeholder="Linkedin", type="text")
+		.form-group
+			input.form-control(name="cCurriculo", placeholder="Curriculo", type="text")
+		.form-group
+			label(for="init") Data da Entrevista
+			input.form-control.date(id="init", name="init", type='date')
+		if entrevista
+			.form-group
+				input.form-control(name="cNivel", placeholder="Nivel", type="text")
+			.form-group
+				input.form-control(name="cSalario", placeholder="Salario Pedido", type="number")
+			.form-group
+				select.form-control(name="cValid")
+					option(value="") -- Avaliação --
+					option(value="hire") Bom
+					option(value="reproved") Regular
+					option(value="fault") Ruim
+			.form-group
+				textarea.form-control(name="cObs", placeholder="Observações")
+		.form-group
+			select.form-control(name="cResult")
+				option(value="") -- Resultado --
+				option(value="hire") Contratado
+				option(value="reproved") Reprovado
+				option(value="fault") Não Compareceu
+		input(type="submit", name="submit", value="Adicionar Candidato").btn.btn-sm

@@ -3,8 +3,7 @@ Template.infoVaga.helpers({
 		return Candidatos.find({"vaga": this._id});
 	},
 	prettifyDate: function(date) {
-    return moment(new Date(date)).format('DD/MM/YYYY');
-    //return new Date(date).toString('dd-MM-yyyy');
+		return moment(date).format('DD/MM/YYYY');
 	}
 });
 
@@ -24,7 +23,7 @@ Template.editVaga.helpers({
 				item.nivel.status = true;
 			}
 		})
-		
+
 		return niveis;
 	}
 });
@@ -104,7 +103,7 @@ Template.contentVaga.events({
 		if(that.interview != ""){
 			Session.set('entrevista', true);
 		} else {
-			Session.set('entrevista', false);			
+			Session.set('entrevista', false);
 		}
 
 
@@ -121,7 +120,7 @@ Template.contentVaga.events({
 			var avaliacao = form.find("select[name='cValid']");
 			var obs = form.find("textarea[name='cObs']");
 			var result = form.find("select[name='cResult']");
-			var submit = form.find("input[name='submit']");	
+			var submit = form.find("input[name='submit']");
 
 			$(form).addClass('edit-candidate');
 			$(name).val(that.name);

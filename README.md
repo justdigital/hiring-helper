@@ -1,5 +1,5 @@
 # Hiring Helper
-TODO: Melhorar a descrição
+TODO: Melhorar a descrição  
 Um projeto para auxiliar no processo de contratação de uma empresa.
 
 ## Dependências

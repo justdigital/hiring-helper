@@ -55,6 +55,8 @@ Template.app.events({
 		event.target.vRole.value = "";
 		event.target.nivel.selectedOptions[0].value = "";
 		event.target.vCost.value = "";
+		event.target.init.value = "";
+		event.target.end.value = "";
 	},
 
 	"click .modal": function (event) {

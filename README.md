@@ -8,7 +8,6 @@ Um projeto para auxiliar no processo de contratação de uma empresa.
   [f36ad180]: https://www.meteor.com/install "Instalação do Meteor"
 
 ## Installation
-TODO: Corrigir o link para o repositório quando estiver no bitbucket
 1. Clone o projeto `git clone git@bitbucket.org:code_just/just-hiring`
 2. Entre no diretório do projeto `cd just-hiring`
 3. Rode o Meteor `meteor`

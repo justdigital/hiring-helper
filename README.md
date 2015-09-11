@@ -7,7 +7,7 @@ Um projeto para auxiliar no processo de contratação de uma empresa.
 
   [f36ad180]: https://www.meteor.com/install "Instalação do Meteor"
 
-## Installation
+## Instalação
 1. Clone o projeto `git clone git@bitbucket.org:code_just/just-hiring`
 2. Entre no diretório do projeto `cd just-hiring`
 3. Rode o Meteor `meteor`
@@ -19,13 +19,16 @@ Um projeto para auxiliar no processo de contratação de uma empresa.
 4. Push o branch: `git push origin my-new-feature`
 5. Envie um pull request :D
 
-## Credits
-[Anselmo Barbosa](anselmo.barbosa@justdigital.com.br)
-[Diego Covre](diego.covre@justdigital.com.br)
-[Franklin Veiga](franklin.veiga@justdigital.com.br)
-[Pipo Bizelli](luiz.bizelli@justdigital.com.br)
-[Renato PSDB](renato.silva@justdigital.com.br)
-[Ronaldo Marciano](ronaldo.marciano@justdigital.com.br)
+## Créditos
+* [Anselmo Barbosa](anselmo.barbosa@justdigital.com.br)
+* [Diego Covre](diego.covre@justdigital.com.br)
+* [Franklin Veiga](franklin.veiga@justdigital.com.br)
+* [Pipo Bizelli](luiz.bizelli@justdigital.com.br)
+* [Renato PSDB](renato.silva@justdigital.com.br)
+* [Ronaldo Marciano](ronaldo.marciano@justdigital.com.br)
 
-## License
+## Changelog
+[Veja aqui](https://bitbucket.org/code_just/just-hiring/src/9d8fa8cf4716edacbccb48585dd990b32dd0d7c0/CHANGELOG.md?at=master&fileviewer=file-view-default)
+
+## Licença
 TODO: Escrever uma licença

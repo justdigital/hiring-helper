@@ -20,12 +20,12 @@ Um projeto para auxiliar no processo de contratação de uma empresa.
 5. Envie um pull request :D
 
 ## Créditos
-* [Anselmo Barbosa](anselmo.barbosa@justdigital.com.br)
-* [Diego Covre](diego.covre@justdigital.com.br)
-* [Franklin Veiga](franklin.veiga@justdigital.com.br)
-* [Pipo Bizelli](luiz.bizelli@justdigital.com.br)
-* [Renato PSDB](renato.silva@justdigital.com.br)
-* [Ronaldo Marciano](ronaldo.marciano@justdigital.com.br)
+* [Anselmo Barbosa](https://bitbucket.org/anselmojb/)
+* [Diego Covre](https://bitbucket.org/dcovre/)
+* [Franklin Veiga](https://bitbucket.org/Franklin_Oliveira/)
+* [Pipo Bizelli](https://bitbucket.org/pipojust/)
+* [Renato PSDB](https://bitbucket.org/ReeSilva_Just/)
+* [Ronaldo Marciano](https://bitbucket.org/ronaldomarciano/)
 
 ## Licença
 TODO: Escrever uma licença

@@ -27,8 +27,5 @@ Um projeto para auxiliar no processo de contratação de uma empresa.
 * [Renato PSDB](renato.silva@justdigital.com.br)
 * [Ronaldo Marciano](ronaldo.marciano@justdigital.com.br)
 
-## Changelog
-[Veja aqui](https://bitbucket.org/code_just/just-hiring/src/9d8fa8cf4716edacbccb48585dd990b32dd0d7c0/CHANGELOG.md?at=master&fileviewer=file-view-default)
-
 ## Licença
 TODO: Escrever uma licença

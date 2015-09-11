@@ -14,15 +14,15 @@ Template.candForm.events({
 		// Prevent default browser form submit
 		var self = this;
 		event.preventDefault();
-		
+
 		// Get value from form element
 		var name = event.target.cName.value;
 		var social = event.target.cSocial.value;
 		var cv = event.target.cCurriculo.value;
 		var interview = $(event.target).find("input[name='cInit']").val();
 		var result = event.target.cResult.selectedOptions[0].value;
-		
-		// Campos para a Entrevista 
+
+		// Campos para a Entrevista
 		if (Session.get('entrevista')) {
 			var nivel = event.target.cNivel.value;
 			var salario = event.target.cSalario.value;
@@ -56,11 +56,20 @@ Template.candForm.events({
 		closeModal();
 	},
 
+	'click .delete-candidate': function (event) {
+
+		var self = this;
+		event.preventDefault();
+
+		Candidatos.remove({_id:Session.get('candId')});
+		closeModal();
+
+	}
 	// 'change .date': function(e) {
 	// 	if (e.target.value != '') {
 	// 		Session.set('entrevista', true);
 	// 	} else {
-	// 		Session.set('entrevista', false);			
+	// 		Session.set('entrevista', false);
 	// 	}
 	// }
 });

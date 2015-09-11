@@ -133,7 +133,7 @@ Template.contentVaga.events({
 			$(obs).val(that.obs);
 			$(result).val(that.result);
 			$(submit).val("Editar Candidato");
-			// $('.delete-candidate').removeClass('sr-only');
+			$('.delete-candidate').removeClass('sr-only');
 
 		});
 

@@ -1,3 +1,6 @@
+# 1.2.1
+* Incluída validação para que não seja permitida a criação de vaga sem nenhum dado. A partir deste commit pelo menos o nome da vaga é obrigatório [5870149](https://github.com/justdigital/hiring-helper/commit/58701495d5bbb599121e3e795c0142954fc195c3)
+
 # 1.2.0
 
 * Criada a funcionalidade para poder excluir um candidato de uma vaga [9c46488](https://bitbucket.org/code_just/just-hiring/commits/9c464885721407f90abb0fac11fdd555725fe720)

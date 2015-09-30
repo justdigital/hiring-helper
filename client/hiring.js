@@ -32,7 +32,14 @@ Template.app.events({
 		event.preventDefault();
 
 		// Get value from form element
-		var papel = event.target.vRole.value;
+		var inputPapel = $(event.target.vRole)
+		,   papel = inputPapel.val();
+		if (!papel) {
+			inputPapel.addClass('required');
+			return false;
+		} else {
+			inputPapel.removeClass('required');
+		}
 		var nivel = event.target.nivel.selectedOptions[0].value;
 		var salario = event.target.vCost.value;
 		//TODO fazer as datas funcionar

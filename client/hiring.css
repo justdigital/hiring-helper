@@ -71,3 +71,7 @@ header{
 .update-candidate{
 	display: none;
 }
+
+.required {
+	border-color: red;
+}
